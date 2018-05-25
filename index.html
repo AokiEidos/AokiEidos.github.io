@@ -88,8 +88,69 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>为了持续喜欢一样东西而全力以赴——因为我们所拥有的「喜欢」这种情感，本来就不是非常积极的东西。</p>
+        <h1 id="AokiEidos-github-io"><a href="#AokiEidos-github-io" class="headerlink" title="AokiEidos.github.io"></a>AokiEidos.github.io</h1><p><strong>跟着师弟学习了一波如何利用树莓派在宿舍免流上网，整理了一下主要步骤~</strong></p>
+<p>[TOCM]</p>
+<p>[TOC]</p>
+<h2 id="一、系统烧录"><a href="#一、系统烧录" class="headerlink" title="一、系统烧录"></a>一、系统烧录</h2><h4 id="硬件准备："><a href="#硬件准备：" class="headerlink" title="硬件准备："></a>硬件准备：</h4><ul>
+<li>树莓派</li>
+<li>SD卡</li>
+<li>电源</li>
+<li>键鼠</li>
+</ul>
+<h4 id="软件准备："><a href="#软件准备：" class="headerlink" title="软件准备："></a>软件准备：</h4><ul>
+<li>raspbian 树莓派官方推荐系统</li>
+<li>SDFormatter 用于SD卡格式化</li>
+<li>Win32DiskImager 用于系统烧录</li>
+<li>putty 可选，Windows远程工具</li>
+</ul>
+<p>　将SD卡格式化后，通过Win32DiskImager工具把下载的raspbian系统烧录到SD卡中即可。</p>
+<h2 id="二、开启SSH"><a href="#二、开启SSH" class="headerlink" title="二、开启SSH"></a>二、开启SSH</h2><p>　在SD卡根目录boot下新建文本文档重命名为ssh（去掉后缀名），树莓派启动时会自动启动ssh。</p>
+<h2 id="三、更新源"><a href="#三、更新源" class="headerlink" title="三、更新源"></a>三、更新源</h2><p>　由于树莓派的内置源在下载一些依赖库时会出现无法连接的情况，因此更换源为阿里云，注意stretch与你的系统一致，旧版本为wheezy或jessie</p>
+<pre><code># 修改源列表
+sudo nano /etc/apt/sources.list
+# 注释文件中之前的源，替换为以下源
+deb http://mirrors.aliyun.com/raspbian/raspbian/ stretch main non-free contrib rpi
+deb-src http://mirrors.aliyun.com/raspbian/raspbian/ stretch main non-free contrib rpi
+# 保存关闭后更新索引和依赖
+sudo apt-get update
+sudo apt-get upgrade -y
+</code></pre><h2 id="四、无线路由器配置"><a href="#四、无线路由器配置" class="headerlink" title="四、无线路由器配置"></a>四、无线路由器配置</h2><p>　要求树莓派通过网线上网且没有连接wifi，开启方法参考<a href="https://github.com/oblique/create_ap" target="_blank" rel="noopener">https://github.com/oblique/create_ap</a><br>具体步骤：</p>
+<pre><code>git clone https://github.com/oblique/create_ap.git
+cd create_ap
+sudo make install
+# 安装依赖库
+sudo apt-get install util-linux procps hostapd iproute2 iw haveged dnsmasq
+开启wifi 
+sudo create_ap wlan0 eth0 热点名 密码
+</code></pre><h2 id="五、配置静态IP与DNS"><a href="#五、配置静态IP与DNS" class="headerlink" title="五、配置静态IP与DNS"></a>五、配置静态IP与DNS</h2><pre><code># 配置dnsmasq
+sudo nano /etc/dnsmasq.conf
+# 清空文件内容，加入以下内容
+resolv-file=/etc/my_dns.conf
+strict-order
+cache-size=10000
+listen-address=114.114.114.114,8.8.8.8
+address=/pi.com/192.168.12.20
+# 编辑 my_dns.conf 文件
+sudo nano /etc/my_dns.conf
+# 加入以下内容
+nameserver 127.0.0.1
+nameserver 114.114.114.114
+nameserver 8.8.8.8
+# 保存退出
 
+# 修改静态ip和dns
+sudo nano /etc/dhcpcd.conf
+# 在最下面添加以下内容
+interface eth0
+static ip_address=192.168.12.20/24
+static routers=192.168.12.1
+static domain_name_servers=114.114.114.114 8.8.8.8
+# 保存重启即可
+</code></pre><h2 id="六、配置openvpn"><a href="#六、配置openvpn" class="headerlink" title="六、配置openvpn"></a>六、配置openvpn</h2><p>　首先准备一个openvpn账号，使用openvpn开启ipv6上网服务，配置dns实现网络转发</p>
+<pre><code># openvpn安装与配置
+sudo apt-get install openvpn
+sudo openvpn --config yourClient.ovpn
+</code></pre>
       
     </div>
     <footer class="article-footer">
