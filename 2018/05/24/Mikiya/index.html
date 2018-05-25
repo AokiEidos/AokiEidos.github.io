@@ -5,19 +5,20 @@
   
 
   
-  <title>月之淚 | Aoki Shizuku</title>
+  <title>openVPN + ipv6 | Aoki Shizuku</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="AokiEidos.github.io跟着师弟学习了一波如何利用树莓派在宿舍免流上网，整理了一下主要步骤~ [TOCM] [TOC] 一、系统烧录硬件准备： 树莓派 SD卡 电源 键鼠  软件准备： raspbian 树莓派官方推荐系统 SDFormatter 用于SD卡格式化 Win32DiskImager 用于系统烧录 putty 可选，Windows远程工具  　将SD卡格式化后，通过Win">
+  <meta name="description" content="跟着师弟学习了一波如何利用树莓派在宿舍免流上网，整理了一下主要步骤~ [TOCM] [TOC] 一、系统烧录硬件准备： 树莓派 SD卡 电源 键鼠  软件准备： raspbian 树莓派官方推荐系统 SDFormatter 用于SD卡格式化 Win32DiskImager 用于系统烧录 putty 可选，Windows远程工具  　将SD卡格式化后，通过Win32DiskImager工具把下载的r">
+<meta name="keywords" content="raspberry Pi, openvbn, ipv6">
 <meta property="og:type" content="article">
-<meta property="og:title" content="月之淚">
+<meta property="og:title" content="openVPN + ipv6">
 <meta property="og:url" content="http://yoursite.com/2018/05/24/Mikiya/index.html">
 <meta property="og:site_name" content="Aoki Shizuku">
-<meta property="og:description" content="AokiEidos.github.io跟着师弟学习了一波如何利用树莓派在宿舍免流上网，整理了一下主要步骤~ [TOCM] [TOC] 一、系统烧录硬件准备： 树莓派 SD卡 电源 键鼠  软件准备： raspbian 树莓派官方推荐系统 SDFormatter 用于SD卡格式化 Win32DiskImager 用于系统烧录 putty 可选，Windows远程工具  　将SD卡格式化后，通过Win">
+<meta property="og:description" content="跟着师弟学习了一波如何利用树莓派在宿舍免流上网，整理了一下主要步骤~ [TOCM] [TOC] 一、系统烧录硬件准备： 树莓派 SD卡 电源 键鼠  软件准备： raspbian 树莓派官方推荐系统 SDFormatter 用于SD卡格式化 Win32DiskImager 用于系统烧录 putty 可选，Windows远程工具  　将SD卡格式化后，通过Win32DiskImager工具把下载的r">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-05-25T09:03:23.035Z">
+<meta property="og:updated_time" content="2018-05-25T09:26:46.972Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="月之淚">
-<meta name="twitter:description" content="AokiEidos.github.io跟着师弟学习了一波如何利用树莓派在宿舍免流上网，整理了一下主要步骤~ [TOCM] [TOC] 一、系统烧录硬件准备： 树莓派 SD卡 电源 键鼠  软件准备： raspbian 树莓派官方推荐系统 SDFormatter 用于SD卡格式化 Win32DiskImager 用于系统烧录 putty 可选，Windows远程工具  　将SD卡格式化后，通过Win">
+<meta name="twitter:title" content="openVPN + ipv6">
+<meta name="twitter:description" content="跟着师弟学习了一波如何利用树莓派在宿舍免流上网，整理了一下主要步骤~ [TOCM] [TOC] 一、系统烧录硬件准备： 树莓派 SD卡 电源 键鼠  软件准备： raspbian 树莓派官方推荐系统 SDFormatter 用于SD卡格式化 Win32DiskImager 用于系统烧录 putty 可选，Windows远程工具  　将SD卡格式化后，通过Win32DiskImager工具把下载的r">
   
     <link rel="alternate" href="/atom.xml" title="Aoki Shizuku" type="application/atom+xml">
   
@@ -82,7 +83,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      月之淚
+      openVPN + ipv6
     </h1>
   
 
@@ -90,7 +91,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="AokiEidos-github-io"><a href="#AokiEidos-github-io" class="headerlink" title="AokiEidos.github.io"></a>AokiEidos.github.io</h1><p><strong>跟着师弟学习了一波如何利用树莓派在宿舍免流上网，整理了一下主要步骤~</strong></p>
+        <p><strong>跟着师弟学习了一波如何利用树莓派在宿舍免流上网，整理了一下主要步骤~</strong></p>
 <p>[TOCM]</p>
 <p>[TOC]</p>
 <h2 id="一、系统烧录"><a href="#一、系统烧录" class="headerlink" title="一、系统烧录"></a>一、系统烧录</h2><h4 id="硬件准备："><a href="#硬件准备：" class="headerlink" title="硬件准备："></a>硬件准备：</h4><ul>
@@ -159,6 +160,8 @@ sudo openvpn --config yourClient.ovpn
       <a data-url="http://yoursite.com/2018/05/24/Mikiya/" data-id="cjhki38fk00001hj2neiabrop" class="article-share-link">Share</a>
       
       
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/raspberry-Pi-openvbn-ipv6/">raspberry Pi, openvbn, ipv6</a></li></ul>
+
     </footer>
   </div>
   
@@ -174,9 +177,23 @@ sudo openvpn --config yourClient.ovpn
 
   
     
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/raspberry-Pi-openvbn-ipv6/">raspberry Pi, openvbn, ipv6</a></li></ul>
+    </div>
+  </div>
+
 
   
     
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/raspberry-Pi-openvbn-ipv6/" style="font-size: 10px;">raspberry Pi, openvbn, ipv6</a>
+    </div>
+  </div>
+
   
     
   <div class="widget-wrap">
@@ -195,7 +212,7 @@ sudo openvpn --config yourClient.ovpn
       <ul>
         
           <li>
-            <a href="/2018/05/24/Mikiya/">月之淚</a>
+            <a href="/2018/05/24/Mikiya/">openVPN + ipv6</a>
           </li>
         
       </ul>
