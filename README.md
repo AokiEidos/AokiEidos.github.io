@@ -1,2 +1,3 @@
-# AokiEidos.github.io
+# Better to run than curse the road.
+
 personal blog just for fun...
